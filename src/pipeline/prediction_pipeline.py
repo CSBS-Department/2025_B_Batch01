@@ -25,3 +25,12 @@ class PredictPipeline:
 
         except Exception as e:
             raise customexception(e,sys)
+        
+class CustomData:
+    def __init__(self):
+        pass
+    
+    def get_data_as_dataframe(self):
+        pass
+
+          
