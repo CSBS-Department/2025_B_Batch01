@@ -26,6 +26,9 @@ class DataTransformation:
     def __init__(self):
         self.data_transformation_config=DataTransformationConfig()
         
+        self.city_encoder=None
+        self.locality_means=None
+        
     def get_data_transformation(self):
         try:
             logging.info('Data Transformation initiated')
@@ -87,14 +90,17 @@ class DataTransformation:
             # For city encoding_train_data
             city_encoder = LabelEncoder()
             train_df['city_encoded'] = city_encoder.fit_transform(train_df['city'])
+            self.city_encoder=city_encoder
             
             # For city encoding_test_data
             city_encoder = LabelEncoder()
             test_df['city_encoded'] = city_encoder.fit_transform(test_df['city'])
             
+            
             # For locality encoding_train_data
             locality_means = train_df.groupby('locality')['price'].mean()
             train_df['locality_encoded'] = train_df['locality'].map(locality_means)
+            self.locality_means=locality_means
             
             # For locality encoding_test_data
             locality_means = test_df.groupby('locality')['price'].mean()

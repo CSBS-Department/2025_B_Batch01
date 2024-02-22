@@ -4,6 +4,7 @@ import pandas as pd
 from src.exception.exception import customexception
 from src.logger.logging import logging
 from src.utils.utils import load_object
+from src.components.data_transformation import DataTransformation
 
 
 class PredictPipeline:
@@ -27,10 +28,52 @@ class PredictPipeline:
             raise customexception(e,sys)
         
 class CustomData:
-    def __init__(self):
-        pass
-    
+    def __init__(self,
+                 area:float,
+                 bedroom:float,
+                 bathroom:float,
+                 seller_type:str,
+                 layout_type:str,
+                 property_type:str,
+                 furnish_type:str,
+                 locality:str,
+                 city:str):
+        
+        self.area=area
+        self.bedroom=bedroom
+        self.bathroom=bathroom
+        self.seller_type=seller_type
+        self.layout_type=layout_type
+        self.property_type=property_type
+        self.furnish_type=furnish_type
+        self.locality=locality
+        self.city=city
+        
+        self.city_encoder=DataTransformation.city_encoder
+        self.locality_encoder=DataTransformation.locality_means
+            
     def get_data_as_dataframe(self):
-        pass
+        try:
+            encoded_user_city = self.city_encoder.transform([self.city])[0]
+            
+            locality_encoding_map = self.locality_means.to_dict()
+            encoded_user_locality = locality_encoding_map.get(self.locality, None)
+            custom_data_input_dict = {
+                'area':[self.area],
+                'bedroom':[self.bedroom],
+                'bathroom':[self.bathroom],
+                'seller_type':[self.seller_type],
+                'layout_type':[self.layout_type],
+                'property_type':[self.property_type],
+                'furnish_type':[self.furnish_type],
+                'locality_encoded':[encoded_user_locality],
+                'city_encoded':[encoded_user_city]
+                }
+            df = pd.DataFrame(custom_data_input_dict)
+            logging.info('Dataframe Gathered')
+            return df
+        except Exception as e:
+            logging.info('Exception Occured in prediction pipeline')
+            raise customexception(e,sys)
 
           
