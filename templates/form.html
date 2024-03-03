@@ -2,14 +2,16 @@
 <html>
 <head>
     <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE-edge">
-    <meta name="viewport" content="width-device-width,initial-scale=1.0">
-    <link rel="stylesheet" href="StyleSheet.css">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!--<link rel="stylesheet" type="static/css" href="StyleSheet.css">-->
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/StyleSheet.css') }}">
     <link rel="icon" type="image/x-icon" href="favicon.ico">
+    <script src="{{ url_for('static', filename='css/drop.js') }}"></script>
+    <!--<script src="drop.js"></script>-->
     <title>HOME</title>
 </head>
 <body>
-    <script src="drop.js"></script>
     <div class="container">
         <form action="" method="post">
             <h2>HOUSE PRICE PREDICTION</h2>
@@ -32,44 +34,46 @@
                 </div>
                 <div class="input-box">
                     <label for="city">City</label>
-                    <select name="City" id="city">
-                      <option value="">Choose a city</option>
+                    <select name="city" id="city"> <!-- Change name to "city" -->
+                        <option value="">Choose a city</option>
                     </select>     
                 </div>
                 <div class="input-box">
                     <label for="locality">Locality</label>
-                    <select name="Locality" id="locality">
-                      <option value="" selected disabled>Choose a locality</option>
+                    <select name="locality" id="locality"> <!-- Change name to "locality" -->
+                        <option value="" selected disabled>Choose a locality</option>
                     </select>
                 </div>
                 <div class="rad">
-                 <span class="seller-type">Seller</span>
-                 <div class="seller-category">
-                    <input type="radio" name="Seller" id="Owner">
-                    <label for="Owner">Owner</label>
-                    <input type="radio" name="Seller" id="Agent">
-                    <label for="Agent">Agent</label>
-                 </div>
-                 <br>
-                 <span class="layout-type">Layout</span>
-                 <div class="layout-category">
-                    <input type="radio" name="Layout" id="BHK">
-                    <label for="BHK">BHK</label>
-                    <input type="radio" name="Layout" id="RK">
-                    <label for="RK">RK</label>
-                 </div>
-                 <br>
-                 <span class="furnish-type">Furnish-type</span>
-                 <div class="furnish-category">
-                    <input type="radio" name="Furnish-type" id="Furnished">
-                    <label for="Furnished">Furnished</label>
-                    <input type="radio" name="Furnish-type" id="Semi-Furnished">
-                    <label for="Semi-Furnished">Semi-Furnished</label>
-                    <input type="radio" name="Furnish-type" id="UnFurnished">
-                    <label for="UnFurnished">UnFurnished</label>
-                 </div>
-                 <br>
-                </div>
+                    <span class="seller-type">Seller</span>
+                    <div class="seller-category">
+                        <input value="OWNER" type="radio" name="seller" id="Owner">
+                        <label for="Owner">Owner</label>
+                        <input value="AGENT" type="radio" name="seller"  id="Agent">
+                        <label for="Agent">Agent</label>
+                        <input value="BUILDER" type="radio" name="seller"  id="Builder">
+                        <label for="Builder">Builder</label>                        
+                    </div>
+                    <br>
+                    <span class="layout-type">Layout</span>
+                    <div class="layout-category">
+                        <input value="BHK" type="radio" name="layout" id="BHK">
+                        <label for="BHK">BHK</label>
+                        <input value="RK" type="radio" name="layout" id="RK">
+                        <label for="RK">RK</label>
+                    </div>
+                    <br>
+                    <span class="furnish-type">Furnish-type</span>
+                    <div class="furnish-category">
+                        <input value="Furnished" type="radio" name="furnish" id="Furnished">
+                        <label for="Furnished">Furnished</label>
+                        <input value="Semi-Furnished" type="radio" name="furnish" id="Semi-Furnished">
+                        <label for="Semi-Furnished">Semi-Furnished</label>
+                        <input value="UnFurnished" type="radio" name="furnish" id="UnFurnished">
+                        <label for="UnFurnished">UnFurnished</label>
+                    </div>
+                    <br>
+                </div>                               
                 <div class="alert">
                     <p>By clicking Submit,You agree to our <a href="#">terms,</a><a href="#">privacy policies</a> and <a href="#">cookies policy.</a>And also you can opt at any time.</p>
                 </div>

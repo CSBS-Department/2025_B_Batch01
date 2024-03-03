@@ -26,6 +26,7 @@ def predict_datapoint():
             city=request.form.get("city")
         )
 
+
         final_data=data.get_data_as_dataframe()
 
         predict_pipeline=PredictPipeline()
