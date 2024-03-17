@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE-edge">
+    <meta name="viewport" content="width-device-width,initial-scale=1.0">
+    <link rel="stylesheet" href="StyleSheet.css">
+    <link rel="icon" type="image/x-icon" href="favicon2.png">
+    <title>PREDICTOR</title>
+</head>
+<body>
+    <script src="drop.js"></script>
+    <div class="box">
+     <div class="container">
+        <form id ="form1" action="" method="post">
+            <h2>HOUSE PRICE PREDICTION</h2>
+            <div class="content">
+                <div class="input-box">
+                    <label for="area">Area</label>
+                    <input type="text" id="area" name="area" placeholder="Enter area value (float)" required>
+                </div>
+                <div class="input-box">
+                    <label for="bedroom">Bedroom</label>
+                    <input type="text" id="bedroom" name="bedroom" placeholder="Enter bedroom value (float)" required>
+                </div>
+                <div class="input-box">
+                    <label for="bathroom">Bathroom</label>
+                    <input type="text" id="bathroom" name="bathroom" placeholder="Enter bathroom value (float)" required>
+                </div>
+                <div class="input-box">
+                    <label for="property">Property</label>
+                    <input type="text" id="property" name="property" placeholder="Enter property type"required>
+                </div>
+                <div class="input-box">
+                    <label for="city">City</label>
+                    <select name="City" id="city">
+                      <option value="">Choose a city</option>
+                    </select>     
+                </div>
+                <div class="input-box">
+                    <label for="locality">Locality</label>
+                    <select name="Locality" id="locality">
+                      <option value="" selected disabled>Choose a locality</option>
+                    </select>
+                </div>
+                <div class="rad">
+                 <span class="seller-type">Seller</span>
+                 <div class="seller-category">
+                    <input type="radio" name="Seller" id="Owner">
+                    <label for="Owner">Owner</label>
+                    <input type="radio" name="Seller" id="Agent">
+                    <label for="Agent">Agent</label>
+                 </div>
+                 <br>
+                 <span class="layout-type">Layout</span>
+                 <div class="layout-category">
+                    <input type="radio" name="Layout" id="BHK">
+                    <label for="BHK">BHK</label>
+                    <input type="radio" name="Layout" id="RK">
+                    <label for="RK">RK</label>
+                 </div>
+                 <br>
+                 <span class="furnish-type">Furnish-type</span>
+                 <div class="furnish-category">
+                    <input type="radio" name="Furnish-type" id="Furnished">
+                    <label for="Furnished">Furnished</label>
+                    <input type="radio" name="Furnish-type" id="Semi-Furnished">
+                    <label for="Semi-Furnished">Semi-Furnished</label>
+                    <input type="radio" name="Furnish-type" id="UnFurnished">
+                    <label for="UnFurnished">UnFurnished</label>
+                 </div>
+                 <br>
+                </div>
+                <div class="alert">
+                    <p>By clicking Submit,You agree to our <a href="#">terms,</a><a href="#">privacy policies</a> and <a href="#">cookies policy.</a>And also you can opt at any time.</p>
+                </div>
+                 <div class="button-container d-flex flex-row justify-content-center">
+                    <button id="togglebutton" type="submit">Predict </button>
+                 </div>
+            </div>
+        </form>
+     </div>
+    </div>
+    <div class="out1">
+        <p>MAKE YOUR DREAM AS REAL</p>
+        <div class="image"></div>
+    </div>
+    <script>
+        document.getElementById("form1").addEventListener("submit", function(event) {
+          event.preventDefault(); // Prevent default form submission behavior
+          // Redirect to the result page
+          window.location.href = "loader.html";
+        });
+    </script>
+</body>
+</html>
