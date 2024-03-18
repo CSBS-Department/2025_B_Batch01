@@ -11,8 +11,6 @@ body{
     display : flex;
     margin-left : 380px;
     padding-left: 380px;
-    padding-top : 10px;
-    padding-bottom : 20px;
 }
 .out1{
     position: absolute;
@@ -25,26 +23,23 @@ body{
     top : 0;
     width: 50%;
     height: 100%;
-    background-image: url('city.jpeg');
+    background-image: url("/static/images/city.jpeg");
     background-size: cover;
     background-position: center;
-    opacity : 0.36;
-}
-.out1 p{
-    font-style: italic;
-    font-size: 45px;
-    font-weight: bolder;
-    margin-left : 45px;
-    padding-right: 100px;
+    
 }
 .container{
-    max-width: 650px;
-    padding :28px;
-    margin : 0 28px;
-    border-radius : 10px;
+    width: 50%;
+    padding-left :28px;
+    padding-right :28px;
+    padding-top: 15px;
+    margin-left : 50%;
+    margin-top: 0;
     overflow :hidden;
     background: rgba(0,0,0,0.2);
     box-shadow : 0 15px 20px rgba(0,0,0,0.6);
+    background-size: cover;
+    height: 100%;
 }
 h2{
     font-size : 26px;
@@ -58,7 +53,7 @@ h2{
     display: flex;
     flex-wrap: wrap;
     justify-content : space-between;
-    padding : 20px 0;
+    padding : 15px 0;
 } 
 .input-box{
     display:flex;
@@ -170,7 +165,7 @@ h2{
 }
 @media(max-width:600px){
     .container{
-        min-width : 280px;   
+        min-width : 0px;   
     }
     .content{
         max-height : 380px;

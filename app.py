@@ -2,7 +2,7 @@ from flask import Flask,request,render_template
 
 from src.pipeline.prediction_pipeline import PredictPipeline,CustomData
 
-app=Flask(__name__)
+app=Flask(__name__,static_url_path='/static')
 
 
 @app.route('/')
@@ -12,7 +12,7 @@ def home_page():
 @app.route("/predict",methods=["GET","POST"])
 def predict_datapoint():
     if request.method=="GET":
-        return render_template("form.html")
+        return render_template("house.html")
     else:
         data=CustomData(
             area=float(request.form.get("area")),
@@ -34,8 +34,14 @@ def predict_datapoint():
         pred=predict_pipeline.predict(final_data)
 
         result=round(pred[0],2)
+        result = f"₹{int(result)-1000} - ₹{int(result)+1000}"
 
         return render_template("result.html",final_result=result)
+    
+@app.route('/load',methods=["GET","POST"])
+def load_page():
+    if request.method == "POST" or "GET":
+        return render_template("loader.html")
 
 if __name__=="__main__":
-    app.run(host="0.0.0.0",port=5000)
+    app.run(host="0.0.0.0",port=8000)

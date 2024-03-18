@@ -1,8 +1,10 @@
 <html>
     <head>
-        <title>HOME-PREDIX.X</title>
-        <link rel="icon" type="image/x-icon" href="favicon.ico">
-        <link rel="stylesheet" href="style.css">
+        <title>House price predictor</title>
+        <link rel="icon" href="{{ url_for('static', filename='favicon.ico') }}">
+        <link rel="stylesheet" type="static/css" href="style.css">
+        <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+        <!--<link rel="stylesheet" href="style.css">-->
         <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
         <meta name="viewport" content="width = device-width,initial-scale=1">
         <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -12,12 +14,13 @@
     </head>
     <body>
         <section id="banner">
+            <!--<img src="{{ url_for('static', filename='images/logo.png') }}" class="logo" width="256">-->
             <div class="banner-text">
                 <h1>Predix.</h1>
                 <p>Predict Your best</p>
                 <div class="banner-btn">
-                    <a href="house.html"><span></span>Predict</a>
-                    <a href="#feature"><span></span>Read More</a>
+                    <a href="{{ url_for('load_page') }}"><span></span>Predict</a>
+                    <a href="#"><span></span>Read More</a>
                 </div>
             </div>
         </section>
@@ -33,7 +36,7 @@
             </nav>
         </div>
         <div id="menuBtn">
-            <img src="menu.png" id="menu">
+            <img src="{{ url_for('static', filename='images/menu.png') }}" id="menu">
         </div>
         <section id="feature">
             <div class="title-text">
@@ -71,7 +74,7 @@
                     </div>
                 </div>
                 <div class="features-img">
-                    <img src="city.jpeg">
+                    <img src="{{ url_for('static', filename='images/city.jpeg') }}">
                 </div>    
             </div>
         </section>
@@ -82,7 +85,7 @@
             </div>
             <div class="service-box">
                 <div class="single-service">
-                    <img src="pic1.jpg">
+                    <img src="{{ url_for('static', filename='images/pic1.jpg') }}">
                     <div class="overlay"></div>
                     <div class="service-desc">
                         <h3>Accurate Rate</h3>
@@ -91,7 +94,7 @@
                     </div>
                 </div>
                 <div class="single-service">
-                    <img src="pic2.jpg">
+                    <img src="{{ url_for('static', filename='images/pic2.jpg') }}">
                     <div class="overlay"></div>
                     <div class="service-desc">
                         <h3>Open Access</h3>
@@ -100,7 +103,7 @@
                     </div>
                 </div>
                 <div class="single-service">
-                    <img src="pic3.jpg">
+                    <img src="{{ url_for('static', filename='images/pic3.jpg') }}">
                     <div class="overlay"></div>
                     <div class="service-desc">
                         <h3>Varieties Of Houses</h3>
@@ -109,7 +112,7 @@
                     </div>
                 </div>
                 <div class="single-service">
-                    <img src="pic4.jpg">
+                    <img src="{{ url_for('static', filename='images/pic4.jpg') }}">
                     <div class="overlay"></div>
                     <div class="service-desc">
                         <h3>More Focus On Major Cities</h3>
@@ -128,7 +131,7 @@
             <div class="testimonial-row">
                 <div class="testimonial-col">
                     <div class="user">
-                        <img src="pro1.jpg">
+                        <img src="{{ url_for('static', filename='images/pro1.jpg') }}">
                         <div class="user-info">
                             <h4>MANIKANDAN S<i class="fa fa-twitter"></i></h4>
                             <small>@ahtimuhdammani</small>
@@ -138,7 +141,7 @@
                 </div>
                 <div class="testimonial-col">
                     <div class="user">
-                        <img src="pro2.jpg">
+                        <img src="{{ url_for('static', filename='images/pro2.jpg') }}">
                         <div class="user-info">
                             <h4>JYOTHISH KUMAR V S <i class="fa fa-twitter"></i></h4>
                             <small>@kokkikumareyy</small>
@@ -148,7 +151,7 @@
                 </div>
                 <div class="testimonial-col">
                     <div class="user">
-                        <img src="pro3.jpg">
+                        <img src="{{ url_for('static', filename='images/pro3.jpg') }}">
                         <div class="user-info">
                             <h4>BALAKUMARAN B<i class="fa fa-twitter"></i></h4>
                             <small>@manOfworst</small>
@@ -191,11 +194,11 @@
             menuBtn.onclick = function(){
                 if(sideNav.style.right == "-250px"){
                     sideNav.style.right = "0";
-                    menu.src="close.png";
+                    menu.src="/static/images/close.png";
                 }
                 else{
                     sideNav.style.right = "-250px";
-                    menu.src = "menu.png";
+                    menu.src = "/static/images/menu.png";
                 }
             }
             var scroll = new SmoothScroll('a[href*="#"]', {
